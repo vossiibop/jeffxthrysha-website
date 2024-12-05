@@ -8,7 +8,7 @@ export default function App() {
   const [auth, setAuth] = useState(false);
 
   return (
-    <Router basename='jeffxthrysha-website'>
+    <Router>
       <AnimatedRoutes />
     </Router>
   );
