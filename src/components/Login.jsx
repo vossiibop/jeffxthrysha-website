@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import "../styles.css"
 
 const Login = ({ setAuth }) => {
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
@@ -15,7 +14,7 @@ const Login = ({ setAuth }) => {
 
     if (password === validPassword) {
       setAuth(true);
-      navigate('/protected');
+      navigate('/home');
     } else {
       alert('Invalid password');
     }

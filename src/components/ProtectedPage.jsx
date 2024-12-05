@@ -307,7 +307,7 @@ const ProtectedPage = () => {
                             <input type='text' name='main-guest' id="main-guest" placeholder='Name of Main Guest' required/>
                         </div>
 
-                        <div class="select-box">
+                        <div className="select-box">
                             <p>FOR HOW MANY PEOPLE:</p>
                             <select name='pax' id='pax' required>
                                 <option value="1">1</option>
