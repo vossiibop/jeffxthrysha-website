@@ -13,7 +13,7 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Login setAuth={setAuth} />} />
+            <Route path="/jeffxthrysha-website" element={<Login setAuth={setAuth} />} />
             <Route path="/home" element={
                 <ProtectedRoute auth={auth}>
                 <ProtectedPage />
