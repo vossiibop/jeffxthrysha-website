@@ -36,6 +36,13 @@ h2 {
 a {
     font-family: 'Lexend Exa';
     font-size: .8rem;
+    color: #9A0051;
+}
+
+p {
+    font-family: 'Jost';
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 strong {
@@ -215,8 +222,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 2vw;
-    background-color: #FBF6EE;
+    background-color: #0047BB;
+    width: 100%;
+    margin-top: -2rem;
+    padding: 5em 0;
 }
 
 .rsvpForm {
@@ -224,7 +233,7 @@ body {
     justify-content: center;
     flex-direction: column;
     height: auto;
-    padding: 5vh 5vw;
+    padding: 2em 0;
     box-sizing: border-box;
 }
 
@@ -237,7 +246,7 @@ body {
 
 .rsvpForm label, p {
     font-family: 'Jost';
-    color:#F3C3CC;
+    color:#FBF6EE;
     font-size: 1em;
     font-weight: 400;
     margin: 0;
@@ -278,16 +287,18 @@ body {
 }
 
 .rsvpForm button {
-    height: 5vh;
-    width: 50%;
-    color: #9A0051;
+    height: auto;
+    width: auto;
+    padding: .5em 1.7em;
+    color: #0047BB;
     font-size: 1rem;
     font-weight: 400;
     margin-top: 2vh;
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: #F3C3CC;
+    background: #FBF6EE;
+    border-radius: .3rem;
 }
 
 .rsvpForm button:hover {
@@ -363,7 +374,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 2vw;
+    margin: 5em;
+    width: 70%;
+    border-style: solid;
+    border-width: .3em;
+    border-radius: 15px;
+    border-color: #f2533F;
+    padding: 2em;
 }
 
 .attireRow {
@@ -376,11 +393,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 20em;
     height: auto;
-    margin: 3vw;
-    padding: 1rem .2rem;
+    padding: 2rem;
+}
+
+.attireDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .faqPage {

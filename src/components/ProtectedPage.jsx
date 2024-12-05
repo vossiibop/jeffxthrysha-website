@@ -2,12 +2,9 @@
 import React from 'react';
 import { useState, useRef } from "react"
 import { motion } from 'motion/react';
-import axios from 'axios'
 import "../styles.css"
 
-import fullName from '../assets/fullNamesWhite.png'
 import names from '../assets/Names White.png'
-import monogram from "../assets/Monogram White.png"
 import bridesmaids from "../assets/JeffThrysha-Bridesmaids.png"
 import groomsmen from "../assets/JeffThrysha-Groomsmen.png"
 import scallop from "../assets/Scallop2.png"
@@ -99,7 +96,7 @@ const ProtectedPage = () => {
             </motion.p>
             <motion.img 
                 src={names}
-                style={{width: '18em', height: 'auto', marginTop: '-2em', marginBottom: '-1.5em'}} 
+                style={{width: '25em', height: 'auto', marginTop: '-2em', marginBottom: '-1.5em'}} 
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
@@ -145,20 +142,31 @@ const ProtectedPage = () => {
 
             {/* Attire Details */}
             <div className="attirePage">
-                <h1 className="heading" style={{color: '#0047BB'}}>what to wear</h1>
+                <motion.h1 style={{color: '#0047BB'}}>what to wear</motion.h1>
                 <div className="attireRow">
                 <div className="attireClass">
-                    <img src={groomsmen} style={{width: '90%', height: 'auto'}} />
-                    <h2 className="subHeading" style={{color: '#0047BB', margin: '0'}}>MEN</h2>
-                    <p className="bodyText" style={{margin: '0'}}>Barong and Pants</p>
+                    <img src={groomsmen} style={{width: '30em', height: 'auto', marginTop: '-5em', marginBottom: '-5em'}} />
+                    <div className='attireDescription'>
+                        <h2 className="subHeading" style={{color: '#0047BB', margin: '0'}}>FOR THE GENTLEMEN:</h2>
+                        <a style={{margin: '0'}}>Barong Tagalog</a>
+                        <p style={{color: '#0047BB'}}>Bring out the best and fanciest Barong out of your closet! Please wear a traditional Barong with that classic beige/cream color, slacks, and leather shoes.</p>
+                    </div>
                 </div>
+                </div>
+                <div className="attireRow">
                 <div className="attireClass">
-                    <img src={bridesmaids} style={{width: '90%', height: 'auto'}} />
-                    <h2 className="subHeading" style={{color: '#9A0051', margin: '0'}}>WOMEN</h2>
-                    <p className="bodyText" style={{color: '#9A0051', margin: '0'}}>Formal Dress</p>
+                    <img src={bridesmaids} style={{width: '30em', height: 'auto', marginTop: '-5em', marginBottom: '-5em'}} />
+                    <div className='attireDescription'>
+                        <h2 className="subHeading" style={{color: '#9A0051', margin: '0'}}>FOR THE LADIES:</h2>
+                        <a style={{color: '#9A0051', margin: '0'}}>Formal Dress</a>
+                        <p style={{color: '#9A0051'}}>We hope you like color! Ladies, please wear your most colorful formal dress. Don’t be afraid to be bold with your outfit, we’d love to see as much color as we can at our big day!</p>
+                    </div>
                 </div>
                 </div>
             </div>
+
+            <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
+            </motion.img>
 
             {/* FAQ Segment */}
             <div className="faqPage">
@@ -280,6 +288,9 @@ const ProtectedPage = () => {
                 </div>
             </div>
 
+            <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
+            </motion.img>
+
             {/* This div contains the RSVP form segment */}
             <motion.div
             className="rsvpPage"
@@ -288,7 +299,7 @@ const ProtectedPage = () => {
             opacity: 1, 
             transition: {duration: .4}}}
             viewport={{once: true, amount: 'some'}}>
-                <h1 className="heading" style={{color: '#9A0051'}}>RSVP</h1>
+                <motion.h1 style={{color: '#FBF6EE'}}>RSVP</motion.h1>
                 <section className="rsvpForm">
                     <form method='post' ref={formRef} onSubmit={handleSubmit} className="rsvp-form">
                         <div className='input-box' style={{marginTop: "0"}}>
@@ -306,11 +317,6 @@ const ProtectedPage = () => {
                                 <option value="5">5</option>
                                 <option value="6">6</option>
                             </select>
-                        </div>
-
-                        <div className='input-box'>
-                            <label for="guests">INPUT NAMES HERE (INCLUDING YOURSELF):</label>
-                            <textarea rows="6" name='guests' id="guests" placeholder='Last name, First name' required></textarea>
                         </div>
 
                         <div className="main-box">
