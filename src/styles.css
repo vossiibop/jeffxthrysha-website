@@ -1,16 +1,28 @@
 @font-face {
     font-family: 'Cheerful Morning';
-    src: local('Cheerful Morning');
+    src: url('./assets/Fonts/cheerfulmorning-webfont.woff2') format('woff2'),
+         url('./assets/Fonts/cheerfulmorning-webfont.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Jost';
-    src: local('Jost');
+    font-weight: 400;
+    src: url('./assets/Fonts/Jost\ Regular.woff2') format('woff2'),
+         url('./assets/Fonts/Jost\ Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Jost Semibold';
+    font-weight: 600;
+    src: url('./assets/Fonts/Jost\ Semibold.woff2') format('woff2'),
+         url('./assets/Fonts/Jost\ Semibold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Lexend Exa';
-    src: local('Lexend Exa');
+    font-weight: 400;
+    src: url('./assets/Fonts/Lexend\ Exa\ Regular.woff2') format('woff2'),
+         url('./assets/Fonts/Lexend\ Exa\ Regular.woff') format('woff');
 }
 
 @media (max-width: 991px) {
