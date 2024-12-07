@@ -17,18 +17,43 @@
     .sidebar {
         background-color: #0047BB;
     }
+    .locationColumn {
+        justify-content: flex-start;
+    }
+    .locationDetails {
+        margin: 0;
+    }
+    .schedRow {
+        flex-direction: column;
+    }
+    .schedRow img {
+        width: 70%;
+        margin: 0;
+    }
+    .attireClass {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1220px) {
+    .drivePath {
+        display: none;
+    }
 }
 
 h1 {
     font-family: 'Jost';
     font-weight: 600;
-    font-size: clamp(1rem, -0.026rem + 4.211vw, 2.5rem);
+    font-size: 4rem;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 h2 {
-    font-size: 1rem;
+    font-size: 3rem;
     font-family: 'Jost';
     font-weight: 500;
+    text-align: center;
 
     @media (width >= 40em) {
         font-size: 3rem;
@@ -39,10 +64,39 @@ h2 {
     }
 }
 
+h3 {
+    font-size: 2rem;
+    font-family: 'Jost';
+    font-weight: 500;
+    text-align: center;
+}
+
+h4 {
+    font-size: 2rem;
+    font-family: 'Jost';
+    font-weight: 350;
+    text-align: center;
+}
+
+.attirePage h2 {
+    text-align: start;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
 a {
     font-family: 'Lexend Exa';
-    font-size: .8rem;
+    font-size: 1.5rem;
+    font-weight: 400;
     color: #9A0051;
+    margin: 0 1em;
+}
+
+.attireClass a {
+    font-size: 2rem;
+    font-weight: 350;
+    text-decoration: underline;
+    padding-bottom: 1rem;
 }
 
 p {
@@ -51,9 +105,14 @@ p {
     font-weight: 700;
 }
 
+.attireClass p {
+    font-size: 2rem;
+}
+
 strong {
     font-family: 'Cheerful Morning';
-    font-size: 3rem;
+    font-size: 4.5rem;
+    text-align: center;
 }
 
 body {
@@ -68,7 +127,7 @@ body {
 
 .landingPage {
     margin: 0;
-    background-image: url(./assets/LandingBG.png);
+    background-image: url(./assets/LandingBG.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -234,7 +293,7 @@ body {
     flex-direction: column;
     background-color: #0047BB;
     width: 100%;
-    margin-top: -2rem;
+    margin-top: -2em;
     padding: 5em 0;
 }
 
@@ -365,7 +424,6 @@ body {
 }
 
 .mainPage {
-    height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -375,22 +433,37 @@ body {
 
 .detailsPage {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 4em 0;
+    margin: 2em 0;
+    padding: 2em;
+}
+
+.detailsRow {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    min-height: 120svh;
+}
+
+.locationColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 -8em;
 }
 
 .locationDetails {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    margin: 2vw;
 }
 
 .mapLinks {
+    width: 100%;
     display: flex;
+    justify-content: center;
 }
 
 .attirePage {
@@ -399,9 +472,9 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 5em;
-    width: 70%;
+    width: 80%;
     border-style: solid;
-    border-width: .3em;
+    border-width: .4em;
     border-radius: 15px;
     border-color: #f2533F;
     padding: 2em;
@@ -421,10 +494,30 @@ body {
     padding: 2rem;
 }
 
+.attireClass img{
+    width: 30%;
+    margin: 0 4em;
+}
+
 .attireDescription {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.attireNote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    width: 60%;
+    background-color: #f2533F;
+    border-radius: 2em;
+}
+
+.attireNote p, h3 {
+    text-align: center;
+    margin: 0;
 }
 
 .schedPage {
@@ -438,11 +531,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2em;
+    padding: 3em;
 }
 
 .schedRow img {
-    width: 18%;
+    min-width: 18%;
     margin: 0 2em;
 }
 
@@ -452,11 +545,30 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 4em 0;
+    width: 40%;
+}
+
+.photoGallery img {
+    width: 200px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #f2533F;
+    padding: 3em;
 }
 
 .accordion {
     width: 100%;
     margin-bottom: 5vh;
+    background-color: #FBF6EE;
+}
+
+.accordion-body {
+    background-color: #FBF6EE;
 }
 
 .accordion h2, span{
@@ -494,6 +606,14 @@ body {
 
 .accordion-item {
     border: 0;
+    background-color: #FBF6EE;
+}
+
+.accordion-button {
+    color: #0047BB;
+    font-size: 1.5rem;
+    background-color: #FBF6EE;
+    margin-bottom: 1rem;
 }
 
 .accordion-button:focus {
@@ -501,7 +621,7 @@ body {
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: transparent; /* Remove the background color when active */
+    background-color: #FBF6EE;
 }
 
 .accordion-button::after {

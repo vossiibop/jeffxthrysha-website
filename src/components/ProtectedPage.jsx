@@ -3,15 +3,22 @@ import React from 'react';
 import { useState, useEffect, useRef } from "react"
 import { motion } from 'motion/react';
 import "../styles.css"
+import Slider from "react-slick";
 
 import names from '../assets/Names White.png'
-import bridesmaids from "../assets/JeffThrysha-Bridesmaids.png"
-import groomsmen from "../assets/JeffThrysha-Groomsmen.png"
-import scallop from "../assets/Scallop2.png"
+import bridesmaids from "../assets/Bridesmaid.svg"
+import groomsmen from "../assets/Groomsmen.svg"
+import scallop from "../assets/Scallop.svg"
+import footerScallop from "../assets/ScallopOrange.svg"
 import ceremonySched from "../assets/Ceremony.png"
 import cocktailsSched from "../assets/Cocktails.png"
 import drinksSched from "../assets/Drinks.png"
 import receptionSched from "../assets/Reception.png"
+import chapel from "../assets/Chapel Colored.svg"
+import entourage from "../assets/Entourage Colored.png"
+import drivePath from "../assets/DrivePath.svg"
+import scheduleText from "../assets/schedEvents.svg"
+import prenup from "../assets/IMG_0872.webp"
 
 const faq = [
     {
@@ -85,6 +92,19 @@ const ProtectedPage = () => {
         .catch(err => console.log(err))
     }
 
+    const [guests, setGuests] = useState(1);
+    const guestDropdownChange = (e) => {
+        setGuests(Number(e.target.value));
+    }
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    };
+
   return (
     <>
         {/* This div is for the first part of the site you will see */}
@@ -116,10 +136,10 @@ const ProtectedPage = () => {
                                 <a class="nav-link" href="#details">details</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a class="nav-link" href="#attire">attire</a>
+                                <a class="nav-link" href="#schedule">schedule</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a class="nav-link" href="#schedule">schedule</a>
+                                <a class="nav-link" href="#attire">attire</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link" href="#faq">faq</a>
@@ -162,36 +182,42 @@ const ProtectedPage = () => {
         <div className="mainPage">
             {/* Wedding Details */}
             <div className="detailsPage" id='details'>
-                <motion.h1 style={{color: '#0047bb'}}>details for the big day!</motion.h1>
-                <div className="locationDetails">
-                    <h2 style={{color: '#f2533f', fontSize: '2vw', margin: '0'}}>CEREMONY</h2>
-                    <strong style={{margin: '0', color: '#0047bb'}}>Chapel on the Hill</strong>
-                    <p style={{color: '#0047bb'}}>Batulao, Batangas</p>
-                    <div className="mapLinks">
-                        <a href="https://www.waze.com/en/live-map/directions/don-bosco-chapel-on-the-hill-caleruega-rd-1-nasugbu?to=place.w.79167629.791938430.1565906" target="_blank" rel="noopener noreferrer">Waze</a>
-                        <a href="https://maps.app.goo.gl/fUjwvsez7kF67Jro9" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <motion.h1 style={{color: '#0047bb', marginBottom: '1em'}}>details for the big day!</motion.h1>
+                <div className='detailsRow'>
+                    <div className='locationColumn'>
+                        <div className="locationDetails">
+                            <h2 style={{color: '#f2533f', fontSize: '2vw', margin: '0'}}>CEREMONY</h2>
+                            <motion.img src={chapel} style={{width: '50%'}}></motion.img>
+                            <strong style={{margin: '0', color: '#0047bb'}}>Chapel on the Hill</strong>
+                            <h4 style={{color: '#0047bb'}}>Batulao, Batangas</h4>
+                            <div className="mapLinks">
+                                <a href="https://www.waze.com/en/live-map/directions/don-bosco-chapel-on-the-hill-caleruega-rd-1-nasugbu?to=place.w.79167629.791938430.1565906" target="_blank" rel="noopener noreferrer">Waze</a>
+                                <a href="https://maps.app.goo.gl/fUjwvsez7kF67Jro9" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                            </div>
+                        </div>
+                        <div className="locationDetails">
+                            <h2 style={{color: '#f2533f', fontSize: '2vw', margin: '0'}}>RECEPTION</h2>
+                            <motion.img src={entourage} style={{width: '40%'}}></motion.img>
+                            <strong style={{margin: '0', color: '#0047bb'}}>Arocarria</strong>
+                            <h4 style={{color: '#0047bb'}}>Alfonso, Cavite</h4>
+                            <div className="mapLinks">
+                                <a href="https://www.waze.com/en/live-map/directions/ph/calabarzon/alfonso/arocarria?to=place.ChIJ05ll0M-dvTMReLTDpkKEvsw" target="_blank" rel="noopener noreferrer">Waze</a>
+                                <a href="https://maps.app.goo.gl/zq46HwGTNAFs4tTE8" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div className="locationDetails">
-                    <h2 style={{color: '#f2533f', fontSize: '2vw', margin: '0'}}>RECEPTION</h2>
-                    <strong style={{margin: '0', color: '#0047bb'}}>Arocarria</strong>
-                    <p style={{color: '#0047bb'}}>Alfonso, Cavite</p>
-                    <div className="mapLinks">
-                        <a href="https://www.waze.com/en/live-map/directions/ph/calabarzon/alfonso/arocarria?to=place.ChIJ05ll0M-dvTMReLTDpkKEvsw" target="_blank" rel="noopener noreferrer">Waze</a>
-                        <a href="https://maps.app.goo.gl/zq46HwGTNAFs4tTE8" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                    </div>
+                    <motion.img className='drivePath' src={drivePath} style={{width: '45%'}}></motion.img>
                 </div>
             </div>
 
             {/* Schedule of Events */}
             <motion.div id='schedule' className='schedPage'>
-                <h1 style={{color: '#0047bb'}}>schedule of events</h1>
+                <motion.img src={scheduleText} style={{width: '30%'}}></motion.img>
                 <motion.div className='schedRow'>
-                    <motion.img src={ceremonySched}></motion.img>
-                    <motion.img src={cocktailsSched}></motion.img>
-                    <motion.img src={receptionSched}></motion.img>
-                    <motion.img src={drinksSched}></motion.img>
+                    <motion.img src={ceremonySched} class="img-fluid" alt="..."></ motion.img>
+                    <motion.img src={cocktailsSched} class="img-fluid" alt="..."></motion.img>
+                    <motion.img src={receptionSched} class="img-fluid" alt="..."></motion.img>
+                    <motion.img src={drinksSched} class="img-fluid" alt="..."></motion.img>
                 </motion.div>
             </motion.div>
 
@@ -199,24 +225,28 @@ const ProtectedPage = () => {
             <div className="attirePage" id='attire'>
                 <motion.h1 style={{color: '#0047BB'}}>what to wear</motion.h1>
                 <div className="attireRow">
-                <div className="attireClass">
-                    <img src={groomsmen} style={{width: '50%', marginTop: '-4em', marginBottom: '-4em'}} />
-                    <div className='attireDescription'>
-                        <h2 className="subHeading" style={{color: '#0047BB', margin: '0'}}>FOR THE GENTLEMEN:</h2>
-                        <a style={{margin: '0'}}>Barong Tagalog</a>
-                        <p style={{color: '#0047BB'}}>Bring out the best and fanciest Barong out of your closet! Please wear a traditional Barong with that classic beige/cream color, slacks, and leather shoes.</p>
+                    <div className="attireClass">
+                        <img src={groomsmen} />
+                        <div className='attireDescription'>
+                            <h2 className="subHeading" style={{color: '#0047BB', margin: '0'}}>FOR THE GENTLEMEN:</h2>
+                            <a style={{color: '#0047BB', margin: '0'}}>Barong Tagalog</a>
+                            <p style={{color: '#0047BB'}}>Bring out the best and fanciest Barong out of your closet! Please wear a traditional Barong with that classic beige/cream color, slacks, and leather shoes.</p>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div className="attireRow">
-                <div className="attireClass">
-                    <img src={bridesmaids} style={{width: '50%', marginTop: '-4em', marginBottom: '-4em'}} />
-                    <div className='attireDescription'>
-                        <h2 className="subHeading" style={{color: '#9A0051', margin: '0'}}>FOR THE LADIES:</h2>
-                        <a style={{color: '#9A0051', margin: '0'}}>Formal Dress</a>
-                        <p style={{color: '#9A0051'}}>We hope you like color! Ladies, please wear your most colorful formal dress. Don’t be afraid to be bold with your outfit, we’d love to see as much color as we can at our big day!</p>
+                    <div className="attireClass">
+                        <img src={bridesmaids} />
+                        <div className='attireDescription'>
+                            <h2 className="subHeading" style={{color: '#9A0051', margin: '0'}}>FOR THE LADIES:</h2>
+                            <a style={{color: '#9A0051', margin: '0'}}>Formal Dress</a>
+                            <p style={{color: '#9A0051'}}>We hope you like color! Ladies, please wear your most colorful formal dress. Don’t be afraid to be bold with your outfit, we’d love to see as much color as we can at our big day!</p>
+                        </div>
                     </div>
                 </div>
+                <div className='attireNote'>
+                    <h3 style={{color: '#FBF6EE'}}>take note!</h3>
+                    <p style={{color: '#FBF6EE'}}>because color is a big part and theme of our wedding, we would like to kindly ask our guests to refrain from wearing black and white.</p>
                 </div>
             </div>
 
@@ -234,7 +264,7 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class='accordion-body'>The date of the wedding is March 8, 2025. The ceremony will be at the Chapel on the Hill in Batulao, Batangas, while the reception will be held at Arrocaria in Alfonso, Cavite</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -345,36 +375,45 @@ const ProtectedPage = () => {
                 <motion.h1 style={{color: '#FBF6EE'}}>RSVP</motion.h1>
                 <section className="rsvpForm">
                     <form method='post' ref={formRef} onSubmit={handleSubmit} className="rsvp-form">
-                        <div className='input-box' style={{marginTop: "0"}}>
+                        {/* <div className='input-box' style={{marginTop: "0"}}>
                             <label for="main-guest">I AM RSVP-ING FOR:</label>
                             <input type='text' name='main-guest' id="main-guest" placeholder='Name of Main Guest' required/>
-                        </div>
+                        </div> */}
 
                         <div className="select-box">
                             <p>FOR HOW MANY PEOPLE:</p>
-                            <select name='pax' id='pax' required>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
+                            <select 
+                                name='pax' 
+                                id='pax' 
+                                required
+                                onChange={guestDropdownChange}
+                            >
+                                <option value={1}>1</option>
+                                <option value={2}>2</option>
+                                <option value={3}>3</option>
+                                <option value={4}>4</option>
+                                <option value={5}>5</option>
+                                <option value={6}>6</option>
                             </select>
                         </div>
 
-                        <div className="main-box">
-                            <p>CHOOSE YOUR MAIN:</p>
-                            <div className="main-option">
-                                <div className="main">
-                                    <input type="radio" id="check-beef" name="main" value="beef" checked required />
-                                    <label for="check-beef">Beef</label>
-                                </div>
-                                <div class="main-option">
-                                    <input type="radio" id="check-fish" value="fish" name="main" />
-                                    <label for="check-fish">Fish</label>
+
+                        {Array.from({ length: guests}).map((_, index) => (
+                            <div className="main-box">
+                                <p>{index == 0? "Main Guest" : "Guest " + String(index)}</p>
+                                <p>CHOOSE YOUR MAIN:</p>
+                                <div className="main-option">
+                                    <div className="main">
+                                        <input type="radio" id="check-beef" name={"main" + String(index)} value="beef" checked required />
+                                        <label for="check-beef">Beef</label>
+                                    </div>
+                                    <div class="main-option">
+                                        <input type="radio" id="check-fish" name={"main" + String(index)} value="fish" />
+                                        <label for="check-fish">Fish</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        ))}
 
                         <div className='input-box'>
                             <label for="allergies">PLEASE LET US KNOW IF YOU HAVE ANY FOOD ALLERGIES:</label>
@@ -392,7 +431,14 @@ const ProtectedPage = () => {
             </motion.div>
 
             <motion.div className='photoGallery' id='photos'>
-                <h1 style={{color: '#0047BB'}}>have a look at our prenup!</h1>
+                <h1 style={{color: '#0047BB'}}>prenup photos otw!</h1>
+            </motion.div>
+
+            
+            <img src={footerScallop} style={{marginBottom: '-3rem', width: '100%'}}/>
+            <motion.div className='footer'>
+                <h3 style={{color: '#FBF6EE', marginBottom: '.5rem'}}>baby come back!</h3>
+                <p style={{fontSize: '1.5rem'}}>feel free to check in to this website again to view all the photos from the event</p>
             </motion.div>
         </div>
     </>
