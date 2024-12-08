@@ -7,22 +7,22 @@
 @font-face {
     font-family: 'Jost';
     font-weight: 400;
-    src: url('./assets/Fonts/Jost\ Regular.woff2') format('woff2'),
-         url('./assets/Fonts/Jost\ Regular.woff') format('woff');
+    src: url('./assets/Fonts/jost-regular.woff2') format('woff2'),
+         url('./assets/Fonts/jost-regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Jost Semibold';
     font-weight: 600;
-    src: url('./assets/Fonts/Jost\ Semibold.woff2') format('woff2'),
-         url('./assets/Fonts/Jost\ Semibold.woff') format('woff');
+    src: url('./assets/Fonts/jost-semi-bold.woff2') format('woff2'),
+         url('./assets/Fonts/jost-semi-bold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Lexend Exa';
     font-weight: 400;
-    src: url('./assets/Fonts/Lexend\ Exa\ Regular.woff2') format('woff2'),
-         url('./assets/Fonts/Lexend\ Exa\ Regular.woff') format('woff');
+    src: url('./assets/Fonts/lexend-exa-regular.woff2') format('woff2'),
+         url('./assets/Fonts/lexend-exa-regular.woff') format('woff');
 }
 
 @media (max-width: 991px) {
@@ -104,6 +104,14 @@ a {
     margin: 0 1em;
 }
 
+.rsvpPage a {
+    text-align: center;
+    font-family: 'Lexend Exa';
+    color: #FBF6EE;
+    margin: 0;
+    font-size: 1rem;
+}
+
 .attireClass a {
     font-size: 2rem;
     font-weight: 350;
@@ -123,11 +131,12 @@ p {
 
 strong {
     font-family: 'Cheerful Morning';
-    font-size: 4.5rem;
+    font-size: clamp(3rem, 1.974rem + 4.211vw, 4.5rem);
     text-align: center;
 }
 
 body {
+    font-family: 'Jost';
     background-color: #FBF6EE;
     margin: 0px;
   }
@@ -271,7 +280,7 @@ body {
     transform: translateY(-20px);
 }
 
-.loginForm .input-box label {
+.loginForm label {
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -305,7 +314,7 @@ body {
     flex-direction: column;
     background-color: #0047BB;
     width: 100%;
-    margin-top: -2em;
+    margin-top: -3em;
     padding: 5em 0;
 }
 
@@ -313,50 +322,46 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: auto;
-    padding: 2em 0;
+    align-items: center;
+    padding: 0 4em;
+    width: 100%;
     box-sizing: border-box;
 }
 
-.rsvp-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.rsvpForm label, p {
-    font-family: 'Jost';
-    color:#FBF6EE;
-    font-size: 1em;
-    font-weight: 400;
-    margin: 0;
-}
-
-.rsvpForm .input-box {
+.rsvpForm textarea {
     width: 100%;
-    margin: 2vh 0;
 }
 
-.rsvpForm :where(.input-box input, .select-box, .input-box textarea) {
-    position: relative;
-    height: 10%;
-    width: 100%;
-    outline: none;
-    font-size: 1rem;
-    font-family: 'Jost';
-    color: #707070;
-    margin-top: 1vh;
+.form-part {
+    margin-bottom: 2em;
 }
 
-.select-box select {
+#rsvp-form label{
+    color: #FBF6EE;
+    font-size: 1.25em;
+}
+
+.rsvp-input::placeholder {
+    color: #C3D8E7;
+}
+
+.rsvp-input {
     height: 100%;
-    width: 20%;
-    outline: none;
+    width: 100%;
+    margin: 1vh 0 1vh 0;
     border: none;
-    color: #707070;
-    font-size: 1rem;
-    margin-top: 1vh;
+    border-bottom: 2px solid #FBF6EE;
+    color: #C3D8E7;
+    outline: none;
+    background-color: transparent;
+}
+
+.form-select {
+    width: 5rem;
+}
+
+.loading-spinner { 
+    display: none; 
 }
 
 .main-box {
@@ -515,6 +520,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    max-width: 50%;;
 }
 
 .attireNote {

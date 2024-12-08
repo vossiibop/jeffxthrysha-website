@@ -14,7 +14,7 @@ const Login = ({ setAuth }) => {
 
     if (password === validPassword) {
       setAuth(true);
-      navigate('/home');
+      navigate('/jeffxthrysha-website/home');
     } else {
       alert('Invalid password');
     }

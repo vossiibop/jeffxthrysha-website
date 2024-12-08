@@ -14,7 +14,7 @@ function AnimatedRoutes() {
     <AnimatePresence>
         <Routes location={location} key={location.pathname}>
             <Route path="/jeffxthrysha-website" element={<Login setAuth={setAuth} />} />
-            <Route path="/home" element={
+            <Route path="/jeffxthrysha-website/home" element={
                 <ProtectedRoute auth={auth}>
                 <ProtectedPage />
                 </ProtectedRoute>

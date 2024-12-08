@@ -1,7 +1,7 @@
 // ProtectedPage.js
 import React from 'react';
 import { useState, useEffect, useRef } from "react"
-import { motion } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import "../styles.css"
 import Slider from "react-slick";
 
@@ -18,50 +18,7 @@ import chapel from "../assets/Chapel Colored.svg"
 import entourage from "../assets/Entourage Colored.png"
 import drivePath from "../assets/DrivePath.svg"
 import scheduleText from "../assets/schedEvents.svg"
-import prenup from "../assets/IMG_0872.webp"
-
-const faq = [
-    {
-        question: 'When and where is the wedding?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'What is the dress code?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'Are children invited?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'What is the RSVP deadline?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'How do I RSVP?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'Is there a wedding registry?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'What accommodations are available?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'Will transportation be provided?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'What should I do if I have dietary restrictions?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-        question: 'Can I bring a plus-one?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    }
-]
+import landingBG from "../assets/LandingBG.svg"
 
 const ProtectedPage = () => {
     const [selected, setSelected] = useState(null)
@@ -70,6 +27,12 @@ const ProtectedPage = () => {
             return setSelected(null);
         }
         setSelected(i);
+    }
+
+    //Show confirmation modal after submitting the RSVP form
+    function showModal() { 
+        var myModal = new bootstrap.Modal(document.getElementById('confirmationModal')); 
+        myModal.show(); 
     }
 
     //For sending RSVP form data to Google Sheets
@@ -88,15 +51,18 @@ const ProtectedPage = () => {
     }).then(res => {
             console.log("SUCCESSFULLY SUBMITTED")
             setLoading(false)
+            showModal()
         })
         .catch(err => console.log(err))
     }
 
+    //Dynamically add guest form inputs based on the number of guests inputted through the dropdown
     const [guests, setGuests] = useState(1);
     const guestDropdownChange = (e) => {
         setGuests(Number(e.target.value));
     }
 
+    //React Slick settings
     var settings = {
         dots: true,
         infinite: true,
@@ -105,74 +71,102 @@ const ProtectedPage = () => {
         slidesToScroll: 1,
     };
 
+    //Wait for Landing page image to load before firing animations
+    const [isLoaded, setIsLoaded] = useState(false); 
+    const handleImageLoad = () => { setIsLoaded(true); };
+
+    const ref = React.useRef(null); 
+    const isInView = useInView(ref, { once: true });
+
   return (
     <>
         {/* This div is for the first part of the site you will see */}
         <div className="landingPage">
-            {/* Navbar */}
-            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent p-4 m-2">
-                <div class="container">
-                <a class="navbar-brand" href="#"></a>
-                    {/* Hamburger Button */}
-                    <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
+            <img 
+                src={landingBG} 
+                alt="Background" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'none' }} 
+                onLoad={handleImageLoad} 
+            />
 
-                    {/* Sidebar */}
-                    <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    
-                        {/* Sidebar Header */}
-                        <div class="offcanvas-header text-white">
-                            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
+            {isLoaded && (
+                // Navbar
+                <motion.nav 
+                    class="navbar navbar-expand-lg navbar-dark bg-transparent p-4 m-2"
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{ duration: .3}}
+                >
+                    <div class="container">
+                        <a class="navbar-brand" href="#"></a>
+                        {/* Hamburger Button */}
+                        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                        {/* Sidebar Body */}
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 navbarLinks">
-                            <li class="nav-item mx-3">
-                                <a class="nav-link active" aria-current="page" href="#">home</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#details">details</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#schedule">schedule</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#attire">attire</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#faq">faq</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#photos">photos</a>
-                            </li>
-                            </ul>
-                            <a class="btn custom-btn" href="#rsvp" role="button">RSVP</a>
+                        {/* Sidebar */}
+                        <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        
+                            {/* Sidebar Header */}
+                            <div class="offcanvas-header text-white">
+                                <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+
+                            {/* Sidebar Body */}
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 navbarLinks">
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link active" aria-current="page" href="#">home</a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#details">details</a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#schedule">schedule</a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#attire">attire</a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#faq">faq</a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#photos">photos</a>
+                                </li>
+                                </ul>
+                                <a class="btn custom-btn" href="#rsvp" role="button">RSVP</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </motion.nav>
+            )}
 
-            <motion.div className="landingCenter">
-                <motion.p
-                    style={{fontSize: '1rem', color: '#FBF6EE', marginBottom: '-1.2%'}}
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    transition={{ duration: .3}}>
-                        welcome to the wedding of
-                </motion.p>
-                <motion.img 
-                    src={names}
-                    style={{width: '25%', marginTop: '-2em', marginBottom: '-1.5em'}} 
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    transition={{ duration: 1, type: 'tween'}}>
-                </motion.img>
-                <h2 style={{fontSize: '1.2rem', fontWeight: '310', color: '#FBF6EE'}}>03 08 2025</h2>
-            </motion.div>
+            {isLoaded && (
+                <motion.div className="landingCenter">
+                    <motion.p
+                        style={{fontSize: '1rem', color: '#FBF6EE', marginBottom: '-1.2%'}}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{ duration: 1}}>
+                            welcome to the wedding of
+                    </motion.p>
+                    <motion.img 
+                        src={names}
+                        style={{width: '25%', marginTop: '-2em', marginBottom: '-1.5em'}} 
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{ duration: 1, type: 'tween', delay: 0.5}}>
+                    </motion.img>
+                    <motion.h2 
+                        style={{fontSize: '1.2rem', fontWeight: '310', color: '#FBF6EE'}}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{ duration: 1, delay: 0.8}}
+                    >
+                            03 08 2025
+                    </motion.h2>
+                </motion.div>
+            )}
         </div>
 
         <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
@@ -185,7 +179,15 @@ const ProtectedPage = () => {
                 <motion.h1 style={{color: '#0047bb', marginBottom: '1em'}}>details for the big day!</motion.h1>
                 <div className='detailsRow'>
                     <div className='locationColumn'>
-                        <div className="locationDetails">
+                        <motion.div 
+                            className="locationDetails"
+                            initial={{opacity: 0}}
+                            whileInView={{
+                                opacity: 1, 
+                                transition: {duration: .4}
+                            }}
+                            viewport={{once: true, amount: 'all'}}
+                            >
                             <h2 style={{color: '#f2533f', fontSize: '2vw', margin: '0'}}>CEREMONY</h2>
                             <motion.img src={chapel} style={{width: '50%'}}></motion.img>
                             <strong style={{margin: '0', color: '#0047bb'}}>Chapel on the Hill</strong>
@@ -194,8 +196,16 @@ const ProtectedPage = () => {
                                 <a href="https://www.waze.com/en/live-map/directions/don-bosco-chapel-on-the-hill-caleruega-rd-1-nasugbu?to=place.w.79167629.791938430.1565906" target="_blank" rel="noopener noreferrer">Waze</a>
                                 <a href="https://maps.app.goo.gl/fUjwvsez7kF67Jro9" target="_blank" rel="noopener noreferrer">Google Maps</a>
                             </div>
-                        </div>
-                        <div className="locationDetails">
+                        </motion.div>
+                        <motion.div 
+                            className="locationDetails"
+                            initial={{opacity: 0}}
+                            whileInView={{
+                                opacity: 1, 
+                                transition: {duration: .4}
+                            }}
+                            viewport={{once: true, amount: 'some'}}
+                            >
                             <h2 style={{color: '#f2533f', fontSize: '2vw', margin: '0'}}>RECEPTION</h2>
                             <motion.img src={entourage} style={{width: '40%'}}></motion.img>
                             <strong style={{margin: '0', color: '#0047bb'}}>Arocarria</strong>
@@ -204,7 +214,7 @@ const ProtectedPage = () => {
                                 <a href="https://www.waze.com/en/live-map/directions/ph/calabarzon/alfonso/arocarria?to=place.ChIJ05ll0M-dvTMReLTDpkKEvsw" target="_blank" rel="noopener noreferrer">Waze</a>
                                 <a href="https://maps.app.goo.gl/zq46HwGTNAFs4tTE8" target="_blank" rel="noopener noreferrer">Google Maps</a>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                     <motion.img className='drivePath' src={drivePath} style={{width: '45%'}}></motion.img>
                 </div>
@@ -212,12 +222,48 @@ const ProtectedPage = () => {
 
             {/* Schedule of Events */}
             <motion.div id='schedule' className='schedPage'>
-                <motion.img src={scheduleText} style={{width: '30%'}}></motion.img>
+                <img src={scheduleText} style={{width: '30%'}}></img>
                 <motion.div className='schedRow'>
-                    <motion.img src={ceremonySched} class="img-fluid" alt="..."></ motion.img>
-                    <motion.img src={cocktailsSched} class="img-fluid" alt="..."></motion.img>
-                    <motion.img src={receptionSched} class="img-fluid" alt="..."></motion.img>
-                    <motion.img src={drinksSched} class="img-fluid" alt="..."></motion.img>
+                    <motion.img 
+                        src={ceremonySched} class="img-fluid" alt="..."
+                        initial={{opacity: 0}}
+                        whileInView={{
+                            opacity: 1, 
+                            transition: {duration: .4}
+                        }}
+                        viewport={{once: true, amount: 'all'}}
+                    >
+                    </ motion.img>
+                    <motion.img 
+                        src={cocktailsSched} class="img-fluid" alt="..."
+                        initial={{opacity: 0}}
+                        whileInView={{
+                            opacity: 1, 
+                            transition: {duration: .4, delay: 0.2}
+                        }}
+                        viewport={{once: true, amount: 'all'}}
+                    >
+                    </motion.img>
+                    <motion.img 
+                        src={receptionSched} class="img-fluid" alt="..."
+                        initial={{opacity: 0}}
+                        whileInView={{
+                            opacity: 1, 
+                            transition: {duration: .4, delay: 0.4}
+                        }}
+                        viewport={{once: true, amount: 'all'}}
+                    >    
+                    </motion.img>
+                    <motion.img 
+                        src={drinksSched} class="img-fluid" alt="..."
+                        initial={{opacity: 0}}
+                        whileInView={{
+                            opacity: 1, 
+                            transition: {duration: .4, delay: 0.6}
+                        }}
+                        viewport={{once: true, amount: 'all'}}
+                    >
+                    </motion.img>
                 </motion.div>
             </motion.div>
 
@@ -227,27 +273,51 @@ const ProtectedPage = () => {
                 <div className="attireRow">
                     <div className="attireClass">
                         <img src={groomsmen} />
-                        <div className='attireDescription'>
+                        <motion.div 
+                            className='attireDescription'
+                            initial={{opacity: 0}}
+                            whileInView={{
+                                opacity: 1, 
+                                transition: {duration: .4}
+                            }}
+                            viewport={{once: true, amount: 'all'}}
+                        >
                             <h2 className="subHeading" style={{color: '#0047BB', margin: '0'}}>FOR THE GENTLEMEN:</h2>
                             <a style={{color: '#0047BB', margin: '0'}}>Barong Tagalog</a>
                             <p style={{color: '#0047BB'}}>Bring out the best and fanciest Barong out of your closet! Please wear a traditional Barong with that classic beige/cream color, slacks, and leather shoes.</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
                 <div className="attireRow">
                     <div className="attireClass">
                         <img src={bridesmaids} />
-                        <div className='attireDescription'>
+                        <motion.div 
+                            className='attireDescription'
+                            initial={{opacity: 0}}
+                            whileInView={{
+                                opacity: 1, 
+                                transition: {duration: .4}
+                            }}
+                            viewport={{once: true, amount: 'all'}}
+                        >
                             <h2 className="subHeading" style={{color: '#9A0051', margin: '0'}}>FOR THE LADIES:</h2>
                             <a style={{color: '#9A0051', margin: '0'}}>Formal Dress</a>
                             <p style={{color: '#9A0051'}}>We hope you like color! Ladies, please wear your most colorful formal dress. Don’t be afraid to be bold with your outfit, we’d love to see as much color as we can at our big day!</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-                <div className='attireNote'>
+                <motion.div 
+                    className='attireNote'
+                    initial={{opacity: 0}}
+                    whileInView={{
+                        opacity: 1, 
+                        transition: {duration: .4}
+                    }}
+                    viewport={{once: true, amount: 'all'}}
+                >
                     <h3 style={{color: '#FBF6EE'}}>take note!</h3>
-                    <p style={{color: '#FBF6EE'}}>because color is a big part and theme of our wedding, we would like to kindly ask our guests to refrain from wearing black and white.</p>
-                </div>
+                    <p style={{color: '#FBF6EE', fontSize: '1.25em'}}>because color is a big part and theme of our wedding, we would like to kindly ask our guests to refrain from wearing black and white.</p>
+                </motion.div>
             </div>
 
             <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
@@ -256,7 +326,16 @@ const ProtectedPage = () => {
             {/* FAQ Segment */}
             <div className="faqPage" id='faq'>
                 <h1 className="heading" style={{color: '#0047BB'}}>FAQs</h1>
-                <div class="accordion accordion-flush" id="accordionFlushExample">
+                <motion.div 
+                    class="accordion accordion-flush" 
+                    id="accordionFlushExample"
+                    initial={{opacity: 0}}
+                    whileInView={{
+                        opacity: 1, 
+                        transition: {duration: .4, delay: .5}
+                    }}
+                    viewport={{once: true, amount: 'some'}}
+                >
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -357,7 +436,7 @@ const ProtectedPage = () => {
                             <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
                             </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
@@ -367,79 +446,138 @@ const ProtectedPage = () => {
             <motion.div
             id='rsvp'
             className="rsvpPage"
-            initial={{opacity: 0}}
-            whileInView={{
-            opacity: 1, 
-            transition: {duration: .4}}}
-            viewport={{once: true, amount: 'some'}}>
+            >
                 <motion.h1 style={{color: '#FBF6EE'}}>RSVP</motion.h1>
-                <section className="rsvpForm">
-                    <form method='post' ref={formRef} onSubmit={handleSubmit} className="rsvp-form">
-                        {/* <div className='input-box' style={{marginTop: "0"}}>
-                            <label for="main-guest">I AM RSVP-ING FOR:</label>
-                            <input type='text' name='main-guest' id="main-guest" placeholder='Name of Main Guest' required/>
-                        </div> */}
-
-                        <div className="select-box">
-                            <p>FOR HOW MANY PEOPLE:</p>
-                            <select 
-                                name='pax' 
-                                id='pax' 
-                                required
-                                onChange={guestDropdownChange}
-                            >
-                                <option value={1}>1</option>
-                                <option value={2}>2</option>
-                                <option value={3}>3</option>
-                                <option value={4}>4</option>
-                                <option value={5}>5</option>
-                                <option value={6}>6</option>
-                            </select>
+                <motion.section 
+                    className="rsvpForm"
+                    initial={{opacity: 0}}
+                    whileInView={{
+                    opacity: 1, 
+                    transition: {duration: .4}}}
+                    viewport={{once: true, amount: 'some'}}>
+                    <form method='post' ref={formRef} onSubmit={handleSubmit} id='rsvp-form'>
+                        <div class='row mb-10 form-part'>
+                            <div class='col'>
+                                <p>NUMBER OF GUESTS</p>
+                                <select 
+                                    class="form-select form-select-sm" 
+                                    aria-label="small select example"
+                                    name='pax' 
+                                    id='pax' 
+                                    required
+                                    onChange={guestDropdownChange}>
+                                    <option selected value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                    <option value={4}>4</option>
+                                    <option value={5}>5</option>
+                                    <option value={6}>6</option>
+                                </select>
+                            </div>
                         </div>
 
-
                         {Array.from({ length: guests}).map((_, index) => (
-                            <div className="main-box">
-                                <p>{index == 0? "Main Guest" : "Guest " + String(index)}</p>
-                                <p>CHOOSE YOUR MAIN:</p>
-                                <div className="main-option">
-                                    <div className="main">
-                                        <input type="radio" id="check-beef" name={"main" + String(index)} value="beef" checked required />
-                                        <label for="check-beef">Beef</label>
+                            <div class='row mb-10 form-part'>
+                                <div class='col-lg-6'>
+                                    <div class='col-lg-12 mb-2 rsvp-item'>
+                                        <label for={index == 0? "main-guest" : "guest-name" + String(index)}>{index == 0? "MAIN GUEST:" : "GUEST " + String(index) + ":"}</label>
+                                        <input class='rsvp-input' type='text' name={index == 0? "main-guest" : "guest-name" + String(index)} id={index == 0? "main-guest" : "guest-name" + String(index)} placeholder='Last name, First name'required/>
                                     </div>
-                                    <div class="main-option">
-                                        <input type="radio" id="check-fish" name={"main" + String(index)} value="fish" />
-                                        <label for="check-fish">Fish</label>
+                                </div>
+                                <div class='col-log-6'>
+                                </div>
+
+                                
+                                <div class='col-lg-6'>
+                                    <p>CHOOSE YOUR MAIN:</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name={"main" + String(index+1)} value="beef" id="check-beef" checked required/>
+                                        <label class="form-check-label" for="check-beef">
+                                            Beef
+                                        </label>
                                     </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name={"main" + String(index+1)} id="check-fish" />
+                                        <label class="form-check-label" for="check-fish">
+                                            Fish
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class='col-lg-6'>
+                                    <p>FOOD ALLERGIES:</p>
+                                    <textarea rows='3' name={"allergies" + String(index+1)} id="allergies" placeholder=' Allergies'/>
                                 </div>
                             </div>
                         ))}
 
-                        <div className='input-box'>
-                            <label for="allergies">PLEASE LET US KNOW IF YOU HAVE ANY FOOD ALLERGIES:</label>
-                            <input type='text' name='allergies' id="allergies" placeholder='List any allergies here' required/>
-                        </div>
-
-                        <div className='input-box'>
+                        <div class='row g-3 mb-3 rsvp-item'>
                             <label for="song-request">DJ, PLEASE PLAY THIS SONG FOR ME:</label>
-                            <input type='text' name='song-request' id="song-request" placeholder='Song requests' required/>
+                            <input class='rsvp-input' type='text' name='song-request' id="song-request" placeholder='Song name/Spotify link' required/>
                         </div>
-
-                        <button type='submit' value={loading ? "Loading..." : "SEND MESSAGE"}>SUBMIT</button>
+                        
+                        <div class='d-flex justify-content-center'>
+                            <button type='submit' value={loading ? "Loading..." : "SEND MESSAGE"} disabled={loading}>
+                                {loading ? 'SENDING...' : 'SUBMIT'}
+                            </button>
+                        </div>
                     </form>
-                </section>
+                </motion.section>
+
+                <div style={{marginTop: '3em', maxWidth: '80%'}}>
+                    <p style={{textAlign: 'center'}}>if you find yourself pregnant or being married 100 days before or after the wedding, please do inform us by messaging Thrysha through her <a href="https://www.facebook.com/reyesthrysha">Facebook</a></p>
+                </div>
             </motion.div>
+
+            <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">RSVP confirmed</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        thank you for your RSVP!
+                        see you on March 8, 2025
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <motion.div className='photoGallery' id='photos'>
                 <h1 style={{color: '#0047BB'}}>prenup photos otw!</h1>
             </motion.div>
-
             
             <img src={footerScallop} style={{marginBottom: '-3rem', width: '100%'}}/>
-            <motion.div className='footer'>
-                <h3 style={{color: '#FBF6EE', marginBottom: '.5rem'}}>baby come back!</h3>
-                <p style={{fontSize: '1.5rem'}}>feel free to check in to this website again to view all the photos from the event</p>
-            </motion.div>
+            <div className='footer'>
+                <motion.h3 
+                    style={{color: '#FBF6EE', marginBottom: '.5rem'}}
+                    initial={{opacity: 0}}
+                    whileInView={{
+                        opacity: 1, 
+                        transition: {duration: .4}
+                    }}
+                    viewport={{once: true, amount: 'all'}}
+                >
+                    baby come back!
+                </motion.h3>
+                <motion.p 
+                    style={{fontSize: '1.5rem', color: '#FBF6EE', textAlign: 'center'}}
+                    initial={{opacity: 0}}
+                    whileInView={{
+                        opacity: 1, 
+                        transition: {duration: .4, delay: .5}
+                    }}
+                    viewport={{once: true, amount: 'all'}}
+                >
+                    feel free to check in to this website again to view all the photos from the event
+                </motion.p>
+            </div>
         </div>
     </>
   )
