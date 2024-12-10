@@ -3,7 +3,6 @@ import React from 'react';
 import { useState, useEffect, useRef } from "react"
 import { motion, useInView } from 'motion/react';
 import "../styles.css"
-import Slider from "react-slick";
 
 import names from '../assets/Names White.png'
 import bridesmaids from "../assets/Bridesmaid.svg"
@@ -19,6 +18,19 @@ import entourage from "../assets/Entourage Colored.png"
 import drivePath from "../assets/DrivePath.svg"
 import scheduleText from "../assets/schedEvents.svg"
 import landingBG from "../assets/LandingBG.svg"
+
+import prenup from "../assets/Prenups/IMG_0831.webp"
+import { 
+    prenup1, prenup2, prenup3,
+    prenup4, prenup5, prenup6,
+    prenup7, prenup8, prenup9,
+    prenup10, prenup11, prenup12,
+    prenup13, prenup14, prenup15,
+    prenup16, prenup17, prenup18,
+    prenup19, prenup20, prenup21,
+    prenup22, prenup23, prenup24,
+    prenup25, prenup26
+} from '../assets/Prenups/index.js'
 
 const ProtectedPage = () => {
     const [selected, setSelected] = useState(null)
@@ -62,15 +74,6 @@ const ProtectedPage = () => {
         setGuests(Number(e.target.value));
     }
 
-    //React Slick settings
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-    };
-
     //Wait for Landing page image to load before firing animations
     const [isLoaded, setIsLoaded] = useState(false); 
     const handleImageLoad = () => { setIsLoaded(true); };
@@ -92,7 +95,7 @@ const ProtectedPage = () => {
             {isLoaded && (
                 // Navbar
                 <motion.nav 
-                    class="navbar navbar-expand-lg navbar-dark bg-transparent p-4 m-2"
+                    class="navbar navbar-expand-lg navbar-dark bg-transparent custom-nav m-2"
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     transition={{ duration: .3}}
@@ -109,7 +112,7 @@ const ProtectedPage = () => {
                         
                             {/* Sidebar Header */}
                             <div class="offcanvas-header text-white">
-                                <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                <button type="button" class="btn-close btn-close-white shadow-none p" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
 
                             {/* Sidebar Body */}
@@ -151,8 +154,8 @@ const ProtectedPage = () => {
                             welcome to the wedding of
                     </motion.p>
                     <motion.img 
+                        id='landingNames'
                         src={names}
-                        style={{width: '25%', marginTop: '-2em', marginBottom: '-1.5em'}} 
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{ duration: 1, type: 'tween', delay: 0.5}}>
@@ -181,6 +184,7 @@ const ProtectedPage = () => {
                     <div className='locationColumn'>
                         <motion.div 
                             className="locationDetails"
+                            id="ceremony"
                             initial={{opacity: 0}}
                             whileInView={{
                                 opacity: 1, 
@@ -222,7 +226,7 @@ const ProtectedPage = () => {
 
             {/* Schedule of Events */}
             <motion.div id='schedule' className='schedPage'>
-                <img src={scheduleText} style={{width: '30%'}}></img>
+                <img id='scheduleText' src={scheduleText} style={{width: '30%'}}></img>
                 <motion.div className='schedRow'>
                     <motion.img 
                         src={ceremonySched} class="img-fluid" alt="..."
@@ -549,8 +553,134 @@ const ProtectedPage = () => {
                 </div>
             </div>
 
-            <motion.div className='photoGallery' id='photos'>
-                <h1 style={{color: '#0047BB'}}>prenup photos otw!</h1>
+            <motion.div style={{ color:"#000000" }} className='photoGallery' id='photos'>
+                <h1 style={{color: '#0047BB'}}>have a look at our prenup!</h1>
+                <div id="carouselGallery" class="carousel slide carousel-dark">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup1} loading='lazy' class="d-block w-100" alt="Image 1"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup2} loading='lazy' class="d-block w-100" alt="Image 2" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup3} loading='lazy' class="d-block w-100" alt="Image 3" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup4} loading='lazy' class="d-block w-100" alt="Image 4"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup5} loading='lazy' class="d-block w-100" alt="Image 5" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup6} loading='lazy' class="d-block w-100" alt="Image 6" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup7} loading='lazy' class="d-block w-100" alt="Image 7"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup8} loading='lazy' class="d-block w-100" alt="Image 8" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup9} loading='lazy' class="d-block w-100" alt="Image 9" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup10} loading='lazy' class="d-block w-100" alt="Image 7"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup11} loading='lazy' class="d-block w-100" alt="Image 8" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup12} loading='lazy' class="d-block w-100" alt="Image 9" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup13} loading='lazy' class="d-block w-100" alt="Image 7"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup14} loading='lazy' class="d-block w-100" alt="Image 8" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup15} loading='lazy' class="d-block w-100" alt="Image 9" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup16} loading='lazy' class="d-block w-100" alt="Image 7"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup17} loading='lazy' class="d-block w-100" alt="Image 8" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup18} loading='lazy' class="d-block w-100" alt="Image 9" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup19} loading='lazy' class="d-block w-100" alt="Image 7"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup20} loading='lazy' class="d-block w-100" alt="Image 8" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup21} loading='lazy' class="d-block w-100" alt="Image 9" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup22} loading='lazy' class="d-block w-100" alt="Image 7"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup23} loading='lazy' class="d-block w-100" alt="Image 8" /> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup24} loading='lazy' class="d-block w-100" alt="Image 9" /> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row"> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup25} loading='lazy' class="d-block w-100" alt="Image 7"/> 
+                                </div> 
+                                <div class="col-4 gallery-photo"> 
+                                    <img src={prenup26} loading='lazy' class="d-block w-100" alt="Image 8" /> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery" data-bs-slide="prev">
+                        <span className='carouselArrows'>&lt;</span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselGallery" data-bs-slide="next">
+                        <span className='carouselArrows'>&gt;</span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </motion.div>
             
             <img src={footerScallop} style={{marginBottom: '-3rem', width: '100%'}}/>
