@@ -172,7 +172,7 @@ const ProtectedPage = () => {
             )}
         </div>
 
-        <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
+        <motion.img src={scallop} style={{marginTop: '-3em', width: '100%'}}>
         </motion.img>
         
         {/* This div contains the main body of the website */}
@@ -357,7 +357,7 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">Barong Tagalog for the men, Formal Dress for the ladies!</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -367,7 +367,7 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">To give all our guests the opportunity to celebrate without having to worry about little eyes and ears, we politely request no children at our event</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -377,7 +377,7 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">The deadline for RSVP is on February 8, 2025</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -387,7 +387,7 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">You may RSVP by simply filling out the form found at the bottom of this website</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -397,7 +397,7 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">Monetary gifts will be greatly appreciated to help us build our future together</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -417,7 +417,7 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">Transportation will not be provided for the event, but rest assured that there will be suitable parking slots for all of our guests bringing their own cars</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -427,7 +427,7 @@ const ProtectedPage = () => {
                             </button>
                         </h2>
                         <div id="flush-collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                            <div class="accordion-body">You may inform us of dietary restrictions and food allergies as you fill out the RSVP form or you may message Thrysha through her Facebook Messenger</div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -437,7 +437,7 @@ const ProtectedPage = () => {
                             </button>
                         </h2>
                         <div id="flush-collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                            <div class="accordion-body">No, plus-ones will not be allowed and we will strictly follow the RSVP responses for our guest list</div>
                             </div>
                     </div>
                 </motion.div>
