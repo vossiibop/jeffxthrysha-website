@@ -83,6 +83,9 @@
         width: 90% !important;
         height: 100%;
     }
+    #landingScallop {
+        margin-top: -2em !important;
+    }
 
     .detailsPage {
         margin: 0 !important;
@@ -133,15 +136,62 @@
         padding-left: 0 !important; 
         padding-right: 0 !important;
         margin-top: 0rem !important;
+        margin-bottom: 1rem !important;
     }
     .attirePage h1 {
         padding: 0;
+    }
+    .attireDescription p {
+        text-align: center !important;
     }
     .attireDescription {
         max-width: 100% !important;
     }
     .attireNote {
         width: 80% !important;
+    }
+
+    .giftsPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3em !important;
+        padding: 2em;
+        width: 100%;
+    }
+    #gift h1, p {
+        padding: 0;
+        text-align: center;
+    }
+    #gift p {
+        font-size: .9rem !important; 
+    }
+    #gift span {
+        font-size: 1rem !important;
+    }
+    #gcashQR {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2em;
+        border-style: solid;
+        border-width: .3em !important;
+        border-radius: 15px;
+        border-color: #0047BB;
+        padding: 1em 0;
+        margin-top: 1.5em !important;
+        width: 100% !important;
+    }
+    #gcashQR img {
+        margin-bottom: 1em;
+    }
+    #qrCode {
+        width: 80%;
+    }
+    #gcashLogo {
+        width: 40%;
     }
 
     .faqPage {
@@ -161,11 +211,18 @@
         padding: 2em;
     }
 
+    #rsvpScallop {
+        margin-bottom: -.5rem !important;
+    }
     .rsvpPage {
         padding: 2em !important;
     }
     .rsvpForm {
         padding: 1em !important; 
+    }
+
+    #footerScallop {
+        margin-bottom: 0rem !important;
     }
 }
 
@@ -288,6 +345,22 @@ body {
     width: 25%;
     margin-top: -2em;
     margin-bottom: -1.5em;
+}
+
+.scallop {
+    width: 100%;
+}
+
+#landingScallop {
+    margin-top: -3em;
+}
+
+#rsvpScallop {
+    margin-bottom: -2rem;
+}
+
+#footerScallop {
+    margin-bottom: -2rem;
 }
 
 .heading {
@@ -438,7 +511,6 @@ body {
     flex-direction: column;
     background-color: #0047BB;
     width: 100%;
-    margin-top: -3em;
     padding: 5em 0;
 }
 
@@ -463,6 +535,10 @@ body {
 #rsvp-form label{
     color: #FBF6EE;
     font-size: 1.25em;
+}
+
+#rsvp-form p {
+    text-align: start;
 }
 
 .rsvp-input::placeholder {
@@ -655,6 +731,10 @@ body {
     max-width: 50%;
 }
 
+.attireDescription p {
+    text-align: start;
+}
+
 .attireNote {
     display: flex;
     flex-direction: column;
@@ -668,6 +748,51 @@ body {
 .attireNote p, h3 {
     text-align: center;
     margin: 0;
+}
+
+.giftsPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5em;
+    padding: 2em;
+}
+
+#gift h1, p {
+    padding: 0;
+    text-align: center;
+}
+
+#gift p {
+    font-size: 2.5rem;
+}
+
+#gcashQR {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    border-style: solid;
+    border-width: .4em;
+    border-radius: 15px;
+    border-color: #0047BB;
+    padding: 2em 0;
+    margin-top: 3em;
+    width: 70%;
+}
+
+#gcashQR img {
+    margin-bottom: 1em;
+}
+
+#qrCode {
+    width: 80%;
+}
+
+#gcashLogo {
+    width: 40%;
 }
 
 .schedPage {

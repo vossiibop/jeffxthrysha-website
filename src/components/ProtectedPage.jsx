@@ -18,19 +18,21 @@ import entourage from "../assets/Entourage Colored.png"
 import drivePath from "../assets/DrivePath.svg"
 import scheduleText from "../assets/schedEvents.svg"
 import landingBG from "../assets/LandingBG.svg"
+import QR from "../assets/QRCode.svg"
+import gcashLogo from "../assets/gcash-seeklogo.svg"
 
-import prenup from "../assets/Prenups/IMG_0831.webp"
-import { 
-    prenup1, prenup2, prenup3,
-    prenup4, prenup5, prenup6,
-    prenup7, prenup8, prenup9,
-    prenup10, prenup11, prenup12,
-    prenup13, prenup14, prenup15,
-    prenup16, prenup17, prenup18,
-    prenup19, prenup20, prenup21,
-    prenup22, prenup23, prenup24,
-    prenup25, prenup26
-} from '../assets/Prenups/index.js'
+// import prenup from "../assets/Prenups/IMG_0831.webp"
+// import { 
+//     prenup1, prenup2, prenup3,
+//     prenup4, prenup5, prenup6,
+//     prenup7, prenup8, prenup9,
+//     prenup10, prenup11, prenup12,
+//     prenup13, prenup14, prenup15,
+//     prenup16, prenup17, prenup18,
+//     prenup19, prenup20, prenup21,
+//     prenup22, prenup23, prenup24,
+//     prenup25, prenup26
+// } from '../assets/Prenups/index.js'
 
 const ProtectedPage = () => {
     const [selected, setSelected] = useState(null)
@@ -172,7 +174,7 @@ const ProtectedPage = () => {
             )}
         </div>
 
-        <motion.img src={scallop} style={{marginTop: '-3em', width: '100%'}}>
+        <motion.img src={scallop} id='landingScallop' className='scallop'>
         </motion.img>
         
         {/* This div contains the main body of the website */}
@@ -324,7 +326,33 @@ const ProtectedPage = () => {
                 </motion.div>
             </div>
 
-            <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
+            <div className="giftsPage" id='gift'>
+                <motion.h1 style={{color: '#0047BB'}}>gifts</motion.h1>
+                <motion.p style={{color: '#9A0051'}}>we appreciate your contribution to our new home.</motion.p>
+                <motion.div id='gcashQR'>
+                    <motion.img 
+                        src={gcashLogo} 
+                        id='gcashLogo'
+                        initial={{opacity: 0}}
+                        whileInView={{
+                            opacity: 1, 
+                            transition: {duration: .4}
+                        }}
+                        viewport={{once: true, amount: 'all'}}></motion.img>
+                    <motion.img 
+                        src={QR} 
+                        id='qrCode'
+                        initial={{opacity: 0}}
+                        whileInView={{
+                            opacity: 1, 
+                            transition: {duration: .4}
+                        }}
+                        viewport={{once: true, amount: 'all'}}></motion.img>
+                    <motion.a><span style={{color: '#0047BB'}}>Thrysha Angelica Reyes | </span><span style={{color: '#9A0051'}}>09178921794</span></motion.a>
+                </motion.div>
+            </div>
+
+            <motion.img src={scallop} style={{marginTop: '-25px'}} className='scallop'>
             </motion.img>
 
             {/* FAQ Segment */}
@@ -347,7 +375,10 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class='accordion-body'>The date of the wedding is March 8, 2025. The ceremony will be at the Chapel on the Hill in Batulao, Batangas, while the reception will be held at Arrocaria in Alfonso, Cavite</div>
+                            <div class='accordion-body'>
+                                Wedding is on March 8, 2025
+                                Ceremony will be held at Chapel on the Hill Don Bosco, Batulao and Reception to follow at Arocarria Alfonso, Cavite
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -357,7 +388,10 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Barong Tagalog for the men, Formal Dress for the ladies!</div>
+                            <div class="accordion-body">
+                                Let’s make the day pop with color - skip the black and white, and join us in something that’s vibrant, colorful, and full of life!
+                                We kindly request that all guests come in strictly formal attire - no wearing of t-shirts, denim, slippers and sports shoes please! Barong and pants for the Gentlemen, Formal dresses for the Ladies. 
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -367,7 +401,9 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">To give all our guests the opportunity to celebrate without having to worry about little eyes and ears, we politely request no children at our event</div>
+                            <div class="accordion-body">
+                                As much as we love your little ones, our wedding is exclusively for adults, with the exception of immediate family who are part of the wedding party.
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -377,7 +413,9 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">The deadline for RSVP is on February 8, 2025</div>
+                            <div class="accordion-body">
+                                To help us with our planning, please RSVP to the event as soon as possible. However, the deadline is on February 8, 2025. If we don’t receive your RSVP by this date, we cannot make exceptions and will have to mark you as “no”. We need to provide the venue with a total guest count in a timely manner, we hope you can understand.
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -387,7 +425,9 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">You may RSVP by simply filling out the form found at the bottom of this website</div>
+                            <div class="accordion-body">
+                                You can find the RSVP at the bottom of this website
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -397,27 +437,9 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Monetary gifts will be greatly appreciated to help us build our future together</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
-                            What accommodations are available?
-                        </button>
-                        </h2>
-                        <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
-                            Will transportation be provided?
-                        </button>
-                        </h2>
-                        <div id="flush-collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Transportation will not be provided for the event, but rest assured that there will be suitable parking slots for all of our guests bringing their own cars</div>
+                            <div class="accordion-body">
+                                Your presence is the greatest gift to us. However, if you'd like to honor us with something more, we would greatly appreciate a monetary contribution as we start our new journey together. 
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -427,7 +449,9 @@ const ProtectedPage = () => {
                             </button>
                         </h2>
                         <div id="flush-collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">You may inform us of dietary restrictions and food allergies as you fill out the RSVP form or you may message Thrysha through her Facebook Messenger</div>
+                            <div class="accordion-body">
+                                Please let us know about any dietary restrictions when you RSVP, and we will do our best to accommodate them.
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -437,13 +461,15 @@ const ProtectedPage = () => {
                             </button>
                         </h2>
                         <div id="flush-collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">No, plus-ones will not be allowed and we will strictly follow the RSVP responses for our guest list</div>
+                            <div class="accordion-body">
+                                Due to limited space, we are only able to accommodate those guests formally invited on our wedding invitation. Thank you for your understanding and feel free to reach out with any questions.
                             </div>
+                        </div>
                     </div>
                 </motion.div>
             </div>
 
-            <motion.img src={scallop} style={{marginTop: '-25px', width: '100%'}}>
+            <motion.img src={scallop} className='scallop' id='rsvpScallop'>
             </motion.img>
 
             {/* This div contains the RSVP form segment */}
@@ -529,7 +555,7 @@ const ProtectedPage = () => {
                 </motion.section>
 
                 <div style={{marginTop: '3em', maxWidth: '80%'}}>
-                    <p style={{textAlign: 'center'}}>if you find yourself pregnant or being married 100 days before or after the wedding, please do inform us by messaging Thrysha through her <a href="https://www.facebook.com/reyesthrysha">Facebook</a></p>
+                    <p style={{textAlign: 'center'}}>if you find yourself pregnant or being married 100 days before or after the wedding, please do inform us by messaging Thrysha via Facebook by clicking <a href="https://www.facebook.com/reyesthrysha">HERE</a></p>
                 </div>
             </motion.div>
 
@@ -554,19 +580,19 @@ const ProtectedPage = () => {
             </div>
 
             <motion.div style={{ color:"#000000" }} className='photoGallery' id='photos'>
-                <h1 style={{color: '#0047BB'}}>have a look at our prenup!</h1>
-                <div id="carouselGallery" class="carousel slide carousel-dark">
+                <h1 style={{color: '#0047BB'}}>prenup photos coming soon!</h1>
+                {/* <div id="carouselGallery" class="carousel slide carousel-dark">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row"> 
                                 <div class="col-4 gallery-photo"> 
-                                    <img src={prenup1} loading='lazy' class="d-block w-100" alt="Image 1"/> 
+                                    <img src={prenup1} class="d-block w-100" alt="Image 1"/> 
                                 </div> 
                                 <div class="col-4 gallery-photo"> 
-                                    <img src={prenup2} loading='lazy' class="d-block w-100" alt="Image 2" /> 
+                                    <img src={prenup2} class="d-block w-100" alt="Image 2" /> 
                                 </div> 
                                 <div class="col-4 gallery-photo"> 
-                                    <img src={prenup3} loading='lazy' class="d-block w-100" alt="Image 3" /> 
+                                    <img src={prenup3} class="d-block w-100" alt="Image 3" /> 
                                 </div> 
                             </div>
                         </div>
@@ -680,10 +706,10 @@ const ProtectedPage = () => {
                         <span className='carouselArrows'>&gt;</span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                </div> */}
             </motion.div>
             
-            <img src={footerScallop} style={{marginBottom: '-3rem', width: '100%'}}/>
+            <img src={footerScallop} className='scallop' id='footerScallop'/>
             <div className='footer'>
                 <motion.h3 
                     style={{color: '#FBF6EE', marginBottom: '.5rem'}}
