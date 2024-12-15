@@ -16,7 +16,7 @@ function AnimatedRoutes() {
             <Route path="/" element={<Login setAuth={setAuth} />} />
             <Route path="/home" element={
                 <ProtectedRoute auth={auth}>
-                <ProtectedPage />
+                  <ProtectedPage />
                 </ProtectedRoute>
             }
             />

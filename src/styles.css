@@ -25,7 +25,8 @@
          url('./assets/Fonts/lexend-exa-regular.woff') format('woff');
 }
 
-@media (max-width: 420px) {
+/* Phone resolutions */
+@media (min-width: 375px) and (max-width: 430px) {
     h1 {
         font-size: 8vw !important;
     }
@@ -58,14 +59,14 @@
     }
 
     .landingPage {
-        background-image: url(./assets/LandingBGMobile.png) !important;
+        background-image: url(./assets/LandingBGMobile.webp) !important;
         background-repeat: no-repeat;
         background-size: contain;
         width: 100%;
-        height: 70svh !important;
+        height: 100svh !important;
     }
     .landingCenter {
-        margin-top: 1em !important;
+        margin-top: 5em !important;
     }
     .landingCenter h2 {
         font-size: 1rem !important;
@@ -76,7 +77,7 @@
         font-size: .75em !important;
     }
     #landingNames {
-        width: 40% !important;
+        width: 55% !important;
     }
     .locationColumn {
         justify-content: flex-start;
@@ -140,6 +141,12 @@
     }
     .attirePage h1 {
         padding: 0;
+    }
+    .attireDescription h2 {
+        font-size: 1.25rem !important;
+    }
+    .attireDescription a{
+        font-size: 1.5rem !important;
     }
     .attireDescription p {
         text-align: center !important;
@@ -223,6 +230,203 @@
 
     #footerScallop {
         margin-bottom: 0rem !important;
+    }
+
+    .scallop {
+        width: 100% !important;
+    }
+}
+
+/* iPad Mini, iPad Air */
+@media (min-width: 768px) and (max-width: 820px) {
+    h1 {
+        margin-bottom: .2em !important;
+    }
+
+    .custom-nav {
+        padding: 0 !important;
+        padding-top: 2em !important;
+    }
+
+    .landingPage {
+        background-image: url(./assets/LandingBGiPad.png) !important;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100svh !important;
+    }
+    .landingCenter {
+        margin-top: 5em !important;
+    }
+    .landingCenter h2 {
+        font-size: 1rem !important;
+        margin-top: .5em !important;
+    }
+    .landingCenter p {
+        margin-bottom: .5em !important;
+        font-size: .75em !important;
+    }
+    #landingNames {
+        width: 40% !important;
+    }
+    .locationColumn {
+        justify-content: flex-start;
+        width: 90% !important;
+        height: 100%;
+    }
+    #landingScallop {
+        margin-top: -2em !important;
+    }
+
+    #ceremony {
+        margin-bottom: 4em !important;
+    }
+
+    .schedRow img {
+        width: 30%;
+        margin: .5em !important;
+    }
+
+    .attirePage {
+        margin-top: 2em !important;
+    }
+    .attireDescription h2 {
+        font-size: 1.5rem !important;
+    }
+    .attireDescription a{
+        font-size: 1.75rem !important;
+    }
+    .attireDescription p {
+        text-align: start !important;
+        font-size: 1.5rem !important;
+    }
+    .attireClass {
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+    }
+    .attireClass img {
+        width: 40% !important;
+        margin: 2em !important;
+        margin-left: 0 !important;
+    }
+    .attireNote {
+        width: 90% !important;
+    }
+
+    #gift h1, p {
+        padding: 0;
+        text-align: center;
+    }
+    #gift p {
+        font-size: 1.75rem !important; 
+    }
+    #gift span {
+        font-size: 1.3rem !important;
+    }
+
+    .faqPage {
+        width: 70% !important;
+        margin: 2em !important;
+    }
+    .accordion-button {
+        font-size: 1.5rem !important;
+    }
+
+    #rsvpScallop {
+        margin-bottom: -1.5rem !important;
+    }
+
+    #footerScallop {
+        margin-bottom: 0rem !important;
+    }
+
+    .scallop {
+        width: 100% !important;
+    }
+}
+
+/* iPad Pro */
+@media (min-width: 906px) and (max-width: 1024px) {
+    h1 {
+        margin-bottom: .2em !important;
+    }
+
+    .landingPage {
+        background-image: url(./assets/LandingBGiPad.png) !important;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100svh !important;
+    }
+    .landingCenter {
+        margin-top: 5em !important;
+    }
+    .landingCenter h2 {
+        font-size: 1rem !important;
+        margin-top: .5em !important;
+    }
+    .landingCenter p {
+        margin-bottom: .5em !important;
+        font-size: .75em !important;
+    }
+    #landingNames {
+        width: 30% !important;
+    }
+    .locationColumn {
+        justify-content: flex-start;
+        width: 90% !important;
+        height: 100%;
+    }
+    #landingScallop {
+        margin-top: -2em !important;
+    }
+
+    #ceremony {
+        margin-bottom: 4em !important;
+    }
+
+    .schedRow img {
+        width: 30%;
+        margin: .5em !important;
+    }
+
+    .attireDescription h2 {
+        font-size: 2rem !important;
+    }
+    .attireDescription a{
+        font-size: 2.2rem !important;
+    }
+    .attireDescription p {
+        text-align: start !important;
+        font-size: 1.5rem !important;
+    }
+    .attireClass img {
+        width: 45% !important;
+        margin: 2em !important;
+        margin-left: 0 !important;
+    }
+    .attireNote {
+        width: 90% !important;
+    }
+
+    #gift span {
+        font-size: 1.75rem !important;
+    }
+
+    #rsvpScallop {
+        margin-bottom: -1rem !important;
+    }
+
+    .faqPage {
+        width: 70% !important;
+        margin: 2em !important;
+    }
+    .accordion-button {
+        font-size: 1.5rem !important;
+    }
+
+    .scallop {
+        width: 100% !important;
     }
 }
 
@@ -356,7 +560,7 @@ body {
 }
 
 #rsvpScallop {
-    margin-bottom: -2rem;
+    margin-bottom: -3rem;
 }
 
 #footerScallop {
