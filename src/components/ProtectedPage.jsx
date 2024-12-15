@@ -1,10 +1,10 @@
 // ProtectedPage.js
 import React from 'react';
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { motion, useInView } from 'motion/react';
 import "../styles.css"
 
-import names from '../assets/Names White.png'
+import names from '../assets/NamesWhite.png'
 import bridesmaids from "../assets/Bridesmaid.svg"
 import groomsmen from "../assets/Groomsmen.svg"
 import scallop from "../assets/Scallop.svg"
@@ -13,8 +13,8 @@ import ceremonySched from "../assets/Ceremony.png"
 import cocktailsSched from "../assets/Cocktails.png"
 import drinksSched from "../assets/Drinks.png"
 import receptionSched from "../assets/Reception.png"
-import chapel from "../assets/Chapel Colored.svg"
-import entourage from "../assets/Entourage Colored.png"
+import chapel from "../assets/ChapelColored.svg"
+import entourage from "../assets/EntourageColored.png"
 import drivePath from "../assets/DrivePath.svg"
 import scheduleText from "../assets/schedEvents.svg"
 import landingBG from "../assets/LandingBG.svg"
