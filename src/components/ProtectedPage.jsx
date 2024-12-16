@@ -7,7 +7,7 @@ import "../styles.css"
 import names from '../assets/NamesWhite.png'
 import bridesmaids from "../assets/Bridesmaid.svg"
 import groomsmen from "../assets/Groomsmen.svg"
-import scallop from "../assets/Scallop.svg"
+import scallop from "../assets/Scallop2.svg"
 import footerScallop from "../assets/ScallopOrange.svg"
 import ceremonySched from "../assets/Ceremony.png"
 import cocktailsSched from "../assets/Cocktails.png"
@@ -720,7 +720,7 @@ const ProtectedPage = () => {
             <div style={{width: '100%'}}>
                 <img src={footerScallop} className='scallop' id='footerScallop'/>
             </div>
-            
+
             <div className='footer'>
                 
                 <motion.h3 
