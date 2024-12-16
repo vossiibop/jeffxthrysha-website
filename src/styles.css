@@ -220,7 +220,7 @@
     }
 
     #rsvpScallop {
-        margin-bottom: -1rem !important;
+        margin-bottom: -1em !important;
     }
     .rsvpPage {
         padding: 2em !important;
@@ -230,11 +230,11 @@
     }
 
     #footerScallop {
-        margin-bottom: -.5rem !important;
+        margin-bottom: -1em !important;
     }
 
     .scallop {
-        width: 100% !important;
+        width: 100vw !important;
     }
 }
 
