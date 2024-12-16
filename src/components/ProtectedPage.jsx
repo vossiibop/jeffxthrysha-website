@@ -174,8 +174,10 @@ const ProtectedPage = () => {
             )}
         </div>
 
-        <motion.img src={scallop} id='landingScallop' className='scallop'>
-        </motion.img>
+        <div style={{width: '100%'}}>
+            <motion.img src={scallop} id='landingScallop' className='scallop'>
+            </motion.img>
+        </div>
         
         {/* This div contains the main body of the website */}
         <div className="mainPage">
@@ -332,8 +334,10 @@ const ProtectedPage = () => {
                 
             </div> */}
 
-            <motion.img src={scallop} style={{marginTop: '-25px'}} className='scallop'>
-            </motion.img>
+            <div style={{width: '100%'}}>
+                <motion.img src={scallop} style={{marginTop: '-25px'}} className='scallop'>
+                </motion.img>
+            </div>
 
             {/* FAQ Segment */}
             <div className="faqPage" id='faq'>
@@ -470,8 +474,10 @@ const ProtectedPage = () => {
                 </motion.div>
             </div>
 
-            <motion.img src={scallop} className='scallop' id='rsvpScallop'>
-            </motion.img>
+            <div style={{width: '100%'}}>
+                <motion.img src={scallop} className='scallop' id='rsvpScallop'>
+                </motion.img>
+            </div>
 
             {/* This div contains the RSVP form segment */}
             <motion.div
@@ -710,8 +716,13 @@ const ProtectedPage = () => {
                 </div> */}
             </motion.div>
             
-            <img src={footerScallop} className='scallop' id='footerScallop'/>
+
+            <div style={{width: '100%'}}>
+                <img src={footerScallop} className='scallop' id='footerScallop'/>
+            </div>
+            
             <div className='footer'>
+                
                 <motion.h3 
                     style={{color: '#FBF6EE', marginBottom: '.5rem'}}
                     initial={{opacity: 0}}
