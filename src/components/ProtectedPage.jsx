@@ -326,31 +326,11 @@ const ProtectedPage = () => {
                 </motion.div>
             </div>
 
-            <div className="giftsPage" id='gift'>
+            {/* <div className="giftsPage" id='gift'>
                 <motion.h1 style={{color: '#0047BB'}}>gifts</motion.h1>
                 <motion.p style={{color: '#9A0051'}}>we appreciate your contribution to our new home.</motion.p>
-                <motion.div id='gcashQR'>
-                    <motion.img 
-                        src={gcashLogo} 
-                        id='gcashLogo'
-                        initial={{opacity: 0}}
-                        whileInView={{
-                            opacity: 1, 
-                            transition: {duration: .4}
-                        }}
-                        viewport={{once: true, amount: 'all'}}></motion.img>
-                    <motion.img 
-                        src={QR} 
-                        id='qrCode'
-                        initial={{opacity: 0}}
-                        whileInView={{
-                            opacity: 1, 
-                            transition: {duration: .4}
-                        }}
-                        viewport={{once: true, amount: 'all'}}></motion.img>
-                    <motion.a><span style={{color: '#0047BB'}}>Thrysha Angelica Reyes | </span><span style={{color: '#9A0051'}}>09178921794</span></motion.a>
-                </motion.div>
-            </div>
+                
+            </div> */}
 
             <motion.img src={scallop} style={{marginTop: '-25px'}} className='scallop'>
             </motion.img>
@@ -426,7 +406,7 @@ const ProtectedPage = () => {
                         </h2>
                         <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                You can find the RSVP at the bottom of this website
+                                You can find the RSVP at the bottom of this website.
                             </div>
                         </div>
                     </div>
@@ -437,8 +417,29 @@ const ProtectedPage = () => {
                         </button>
                         </h2>
                         <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                Your presence is the greatest gift to us. However, if you'd like to honor us with something more, we would greatly appreciate a monetary contribution as we start our new journey together. 
+                            <div class="accordion-body" id='accordion-registry'>
+                                Your presence is the greatest gift to us. However, if you'd like to honor us with something more, we would greatly appreciate a monetary contribution as we start our new journey together.
+                                <motion.div id='gcashQR'>
+                                    <motion.img 
+                                        src={gcashLogo} 
+                                        id='gcashLogo'
+                                        initial={{opacity: 0}}
+                                        whileInView={{
+                                            opacity: 1, 
+                                            transition: {duration: .4}
+                                        }}
+                                        viewport={{once: true, amount: 'all'}}></motion.img>
+                                    <motion.img 
+                                        src={QR} 
+                                        id='qrCode'
+                                        initial={{opacity: 0}}
+                                        whileInView={{
+                                            opacity: 1, 
+                                            transition: {duration: .4}
+                                        }}
+                                        viewport={{once: true, amount: 'all'}}></motion.img>
+                                    <motion.a><span style={{color: '#0047BB'}}>Thrysha Angelica Reyes | </span><span style={{color: '#9A0051'}}>09178921794</span></motion.a>
+                                </motion.div>
                             </div>
                         </div>
                     </div>

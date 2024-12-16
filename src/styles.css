@@ -66,7 +66,7 @@
         height: 100svh !important;
     }
     .landingCenter {
-        margin-top: 5em !important;
+        margin-top: 10vh !important;
     }
     .landingCenter h2 {
         font-size: 1rem !important;
@@ -137,7 +137,7 @@
         padding-left: 0 !important; 
         padding-right: 0 !important;
         margin-top: 0rem !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 4rem !important;
     }
     .attirePage h1 {
         padding: 0;
@@ -171,11 +171,11 @@
         padding: 0;
         text-align: center;
     }
-    #gift p {
+    .gcashQR p {
         font-size: .9rem !important; 
     }
-    #gift span {
-        font-size: 1rem !important;
+    #gcashQR span {
+        font-size: .9rem !important;
     }
     #gcashQR {
         display: flex;
@@ -320,8 +320,8 @@
     #gift p {
         font-size: 1.75rem !important; 
     }
-    #gift span {
-        font-size: 1.3rem !important;
+    #gcashQR span {
+        font-size: 1rem !important;
     }
 
     .faqPage {
@@ -409,8 +409,8 @@
         width: 90% !important;
     }
 
-    #gift span {
-        font-size: 1.75rem !important;
+    #gcashQR span {
+        font-size: 1.5rem !important;
     }
 
     #rsvpScallop {
@@ -553,6 +553,10 @@ body {
 
 .scallop {
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #landingScallop {
@@ -864,7 +868,6 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 3em;
-    max-height: 120svh;
 }
 
 #ceremony {
@@ -935,6 +938,13 @@ body {
     max-width: 50%;
 }
 
+.attireDescription h2 {
+    font-size: 2rem;
+}
+.attireDescription a{
+    font-size: 3rem;
+}
+
 .attireDescription p {
     text-align: start;
 }
@@ -983,7 +993,7 @@ body {
     border-radius: 15px;
     border-color: #0047BB;
     padding: 2em 0;
-    margin-top: 3em;
+    margin-top: 1em;
     width: 70%;
 }
 
@@ -997,6 +1007,10 @@ body {
 
 #gcashLogo {
     width: 40%;
+}
+
+#gcashQR span {
+    font-size: 1.25vw;
 }
 
 .schedPage {
@@ -1058,6 +1072,13 @@ body {
 
 .accordion-body {
     background-color: #FBF6EE;
+    padding-top: 0;
+}
+
+#accordion-registry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .accordion h2, span{
