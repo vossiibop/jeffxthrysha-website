@@ -360,8 +360,8 @@ const ProtectedPage = () => {
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class='accordion-body'>
-                                Wedding is on March 8, 2025
-                                Ceremony will be held at Chapel on the Hill Don Bosco, Batulao and Reception to follow at Arocarria Alfonso, Cavite
+                                Wedding is on March 8, 2025.
+                                Ceremony will be held at Chapel on the Hill Don Bosco, Batulao and Reception to follow at Arocarria Alfonso, Cavite.
                             </div>
                         </div>
                     </div>
