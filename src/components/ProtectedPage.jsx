@@ -562,7 +562,7 @@ const ProtectedPage = () => {
                 </motion.section>
 
                 <div style={{marginTop: '3em', maxWidth: '80%'}}>
-                    <p style={{textAlign: 'center'}}>if you find yourself pregnant or being married 100 days before or after the wedding, please do inform us by messaging Thrysha via Facebook by clicking <a href="https://www.facebook.com/reyesthrysha" target="_blank" rel="noopener noreferrer">HERE</a></p>
+                    <p style={{textAlign: 'center'}}>if you find yourself pregnant or getting married 100 days before or after the wedding, please inform us by messaging Thrysha or Jeff via Facebook.</p>
                 </div>
             </motion.div>
 
