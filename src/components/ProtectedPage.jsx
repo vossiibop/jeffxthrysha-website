@@ -18,8 +18,8 @@ import entourage from "../assets/EntourageColored.png"
 import drivePath from "../assets/DrivePath.svg"
 import scheduleText from "../assets/schedEvents.svg"
 import landingBG from "../assets/LandingBG.svg"
-import QR from "../assets/QRCode.svg"
-import gcashLogo from "../assets/gcash-seeklogo.svg"
+import QR from "../assets/BDO_QR.svg"
+import gcashLogo from "../assets/banco-de-oro-bdo-seeklogo.png"
 
 // import prenup from "../assets/Prenups/IMG_0831.webp"
 // import { 
@@ -442,7 +442,7 @@ const ProtectedPage = () => {
                                             transition: {duration: .4}
                                         }}
                                         viewport={{once: true, amount: 'all'}}></motion.img>
-                                    <motion.a><span style={{color: '#0047BB'}}>Thrysha Angelica Reyes | </span><span style={{color: '#9A0051'}}>09178921794</span></motion.a>
+                                    <motion.a><span style={{color: '#0047BB'}}>Thrysha Angelica Reyes | </span><span style={{color: '#9A0051'}}>004390090804</span></motion.a>
                                 </motion.div>
                             </div>
                         </div>
