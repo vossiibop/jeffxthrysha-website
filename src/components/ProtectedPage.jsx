@@ -388,7 +388,7 @@ const ProtectedPage = () => {
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 We know some of you will be traveling to come celebrate with us. If you wish to stay near the area for the wedding, you can choose to book a room at <strong>Abagatan Ti Manila</strong>, which is also where the wedding party will be staying.<br/><br/>
-                                You can also get a discounted price on the room if you mention that you are part of the Mercado-Reyes wedding. <br/><br/>
+                                You can also get a discounted price on the room if you mention that you are part of the Mercado-Reyes wedding. Please contact <b>0917 855 4446</b> for reservations. <br/><br/>
                                 Abagatan Ti is 9 mins away from Chapel on the Hill, and 16 mins away from Arocarria.
                             </div>
                         </div>

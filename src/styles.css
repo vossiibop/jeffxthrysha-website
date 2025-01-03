@@ -206,6 +206,11 @@
         width: 90% !important;
         margin: 2em !important;
     }
+    .faqPage strong {
+        font-family: 'Jost Semibold' !important;
+        font-size: 1rem !important;
+        font-weight: 900 !important;
+    }
     .accordion-button {
         font-size: 4vw !important;
     }
