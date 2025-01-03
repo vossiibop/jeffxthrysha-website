@@ -1,6 +1,6 @@
 // ProtectedPage.js
-import React from 'react';
-import { useState, useRef } from "react"
+import React, { useEffect } from 'react';
+import { useState, useRef } from "react";
 import { motion, useInView } from 'motion/react';
 import "../styles.css"
 
@@ -66,6 +66,7 @@ const ProtectedPage = () => {
             console.log("SUCCESSFULLY SUBMITTED")
             setLoading(false)
             showModal()
+            formRef.current.reset()
         })
         .catch(err => console.log(err))
     }
@@ -381,10 +382,24 @@ const ProtectedPage = () => {
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Are children invited?
+                            Are there any accommodations avilable? 
                         </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                We know some of you will be traveling to come celebrate with us. If you wish to stay near the area for the wedding, you can choose to book a room at <strong>Abagatan Ti Manila</strong>, which is also where the wedding party will be staying.<br/><br/>
+                                You can also get a discounted price on the room if you mention that you are part of the Mercado-Reyes wedding. <br/><br/>
+                                Abagatan Ti is 9 mins away from Chapel on the Hill, and 16 mins away from Arocarria.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                            Are children invited?
+                        </button>
+                        </h2>
+                        <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 As much as we love your little ones, our wedding is exclusively for adults, with the exception of immediate family who are part of the wedding party.
                             </div>
@@ -534,7 +549,7 @@ const ProtectedPage = () => {
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name={"main" + String(index+1)} id="check-fish" />
+                                        <input class="form-check-input" type="radio" name={"main" + String(index+1)} value="fish" id="check-fish" />
                                         <label class="form-check-label" for="check-fish">
                                             Fish
                                         </label>

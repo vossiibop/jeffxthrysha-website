@@ -1042,6 +1042,12 @@ body {
     width: 40%;
 }
 
+.faqPage strong {
+    font-family: 'Jost Semibold';
+    font-size: 1rem;
+    font-weight: 900;
+}
+
 #photos {
     margin: 4em 0;
     width: 80%;
