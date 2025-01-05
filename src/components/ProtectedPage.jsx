@@ -21,18 +21,17 @@ import landingBG from "../assets/LandingBG.svg"
 import QR from "../assets/BDO_QR.svg"
 import gcashLogo from "../assets/banco-de-oro-bdo-seeklogo.png"
 
-// import prenup from "../assets/Prenups/IMG_0831.webp"
-// import { 
-//     prenup1, prenup2, prenup3,
-//     prenup4, prenup5, prenup6,
-//     prenup7, prenup8, prenup9,
-//     prenup10, prenup11, prenup12,
-//     prenup13, prenup14, prenup15,
-//     prenup16, prenup17, prenup18,
-//     prenup19, prenup20, prenup21,
-//     prenup22, prenup23, prenup24,
-//     prenup25, prenup26
-// } from '../assets/Prenups/index.js'
+import { 
+    prenup1, prenup2, prenup3,
+    prenup4, prenup5, prenup6,
+    prenup7, prenup8, prenup9,
+    prenup10, prenup11, prenup12,
+    prenup13, prenup14, prenup15,
+    prenup16, prenup17, prenup18,
+    prenup19, prenup20, prenup21,
+    prenup22, prenup23, prenup24,
+    prenup25, prenup26
+} from '../assets/Prenups/index.js'
 
 const ProtectedPage = () => {
     const [selected, setSelected] = useState(null)
@@ -382,7 +381,7 @@ const ProtectedPage = () => {
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Are there any accommodations avilable? 
+                            Are there any accommodations available? 
                         </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -602,8 +601,8 @@ const ProtectedPage = () => {
             </div>
 
             <motion.div style={{ color:"#000000" }} className='photoGallery' id='photos'>
-                <h1 style={{color: '#0047BB'}}>prenup photos coming soon!</h1>
-                {/* <div id="carouselGallery" class="carousel slide carousel-dark">
+                <h1 style={{color: '#0047BB'}}>prenup photos!</h1>
+                <div id="carouselGallery" class="carousel slide carousel-dark">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row"> 
@@ -728,7 +727,7 @@ const ProtectedPage = () => {
                         <span className='carouselArrows'>&gt;</span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div> */}
+                </div>
             </motion.div>
             
 
