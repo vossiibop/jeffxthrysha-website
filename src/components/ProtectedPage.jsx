@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useState, useRef } from "react";
 import { motion, useInView } from 'motion/react';
+import $ from 'jquery';
 import "../styles.css"
 
 import names from '../assets/NamesWhite.png'
@@ -82,6 +83,57 @@ const ProtectedPage = () => {
 
     const ref = React.useRef(null); 
     const isInView = useInView(ref, { once: true });
+
+    //Prenup gallery scroll
+    useEffect(() => {
+        const multipleItemCarousel = document.querySelector('#carouselGallery');
+
+        if (window.matchMedia("(min-width:576px)").matches){
+            const carousel = new bootstrap.Carousel(multipleItemCarousel, {
+                interval: false
+            })
+
+            var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+            var imgWidth = $(".carousel-item").width();
+
+            var scrollPosition = 0;
+
+            //Hide controls on first photo
+            $(".carousel-control-prev").hide()
+
+            $(".carousel-control-next").on("click", function () {
+                if (scrollPosition < (carouselWidth - (imgWidth * 3))) { //check if you can go any further
+                    scrollPosition += imgWidth;  //update scroll position
+                    $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 600); //scroll left
+                }
+
+                if (scrollPosition > 0) {
+                    $(".carousel-control-prev").show()
+                }
+
+                if (scrollPosition > (carouselWidth - (imgWidth * 3))) {
+                    $(".carousel-control-next").hide()
+                }
+            });
+
+            $(".carousel-control-prev").on("click", function () {
+                if (scrollPosition > 0) {
+                    scrollPosition -= imgWidth;
+                    $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 600);
+
+                    if (scrollPosition <= 0) {
+                        $(".carousel-control-prev").hide()
+                    }
+
+                    if (scrollPosition < (carouselWidth - (imgWidth * 3))) {
+                        $(".carousel-control-next").show()
+                    }
+                }
+            });
+        } else {
+            $(multipleItemCarousel).addClass('slide')
+        }
+    }, [])
 
   return (
     <>
@@ -557,7 +609,7 @@ const ProtectedPage = () => {
                                 
                                 <div class='col-lg-6'>
                                     <p>FOOD ALLERGIES:</p>
-                                    <textarea rows='3' name={"allergies" + String(index+1)} id="allergies" placeholder=' Allergies'/>
+                                    <textarea rows='3' name={"allergies" + String(index+1)} id="allergies" placeholder=' Allergies or Dietary Restrictions'/>
                                 </div>
                             </div>
                         ))}
@@ -602,121 +654,85 @@ const ProtectedPage = () => {
 
             <motion.div style={{ color:"#000000" }} className='photoGallery' id='photos'>
                 <h1 style={{color: '#0047BB'}}>prenup photos!</h1>
-                <div id="carouselGallery" class="carousel slide carousel-dark">
+                <div id="carouselGallery" class="carousel carousel-dark">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup1} class="d-block w-100" alt="Image 1"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup2} class="d-block w-100" alt="Image 2" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup3} class="d-block w-100" alt="Image 3" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup1} class="d-block w-100 gallery-photo" alt="prenup1"/> 
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup4} loading='lazy' class="d-block w-100" alt="Image 4"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup5} loading='lazy' class="d-block w-100" alt="Image 5" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup6} loading='lazy' class="d-block w-100" alt="Image 6" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup2} class="d-block w-100 gallery-photo" alt="prenup2"/>
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup7} loading='lazy' class="d-block w-100" alt="Image 7"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup8} loading='lazy' class="d-block w-100" alt="Image 8" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup9} loading='lazy' class="d-block w-100" alt="Image 9" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup3} class="d-block w-100 gallery-photo" alt="prenup3"/> 
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup10} loading='lazy' class="d-block w-100" alt="Image 7"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup11} loading='lazy' class="d-block w-100" alt="Image 8" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup12} loading='lazy' class="d-block w-100" alt="Image 9" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup4} class="d-block w-100 gallery-photo" alt="prenup4"/> 
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup13} loading='lazy' class="d-block w-100" alt="Image 7"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup14} loading='lazy' class="d-block w-100" alt="Image 8" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup15} loading='lazy' class="d-block w-100" alt="Image 9" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup5} class="d-block w-100 gallery-photo" alt="prenup5"/> 
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup16} loading='lazy' class="d-block w-100" alt="Image 7"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup17} loading='lazy' class="d-block w-100" alt="Image 8" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup18} loading='lazy' class="d-block w-100" alt="Image 9" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup6} class="d-block w-100 gallery-photo" alt="prenup6"/> 
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup19} loading='lazy' class="d-block w-100" alt="Image 7"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup20} loading='lazy' class="d-block w-100" alt="Image 8" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup21} loading='lazy' class="d-block w-100" alt="Image 9" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup7} class="d-block w-100 gallery-photo" alt="prenup7"/>
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup22} loading='lazy' class="d-block w-100" alt="Image 7"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup23} loading='lazy' class="d-block w-100" alt="Image 8" /> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup24} loading='lazy' class="d-block w-100" alt="Image 9" /> 
-                                </div> 
-                            </div>
+                            <img src={prenup8} class="d-block w-100 gallery-photo" alt="prenup8"/> 
                         </div>
                         <div class="carousel-item">
-                            <div class="row"> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup25} loading='lazy' class="d-block w-100" alt="Image 7"/> 
-                                </div> 
-                                <div class="col-4 gallery-photo"> 
-                                    <img src={prenup26} loading='lazy' class="d-block w-100" alt="Image 8" /> 
-                                </div>
-                            </div>
+                            <img src={prenup9} class="d-block w-100 gallery-photo" alt="prenup9"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup10} class="d-block w-100 gallery-photo" alt="prenup10"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup11} class="d-block w-100 gallery-photo" alt="prenup11"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup12} class="d-block w-100 gallery-photo" alt="prenup12"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup13} class="d-block w-100 gallery-photo" alt="prenup13"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup14} class="d-block w-100 gallery-photo" alt="prenup14"/>
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup15} class="d-block w-100 gallery-photo" alt="prenup15"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup16} class="d-block w-100 gallery-photo" alt="prenup16"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup17} class="d-block w-100 gallery-photo" alt="prenup17"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup18} class="d-block w-100 gallery-photo" alt="prenup18"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup19} class="d-block w-100 gallery-photo" alt="prenup12"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup20} class="d-block w-100 gallery-photo" alt="prenup20"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup21} class="d-block w-100 gallery-photo" alt="prenup21"/>
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup22} class="d-block w-100 gallery-photo" alt="prenup22"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup23} class="d-block w-100 gallery-photo" alt="prenup23"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup24} class="d-block w-100 gallery-photo" alt="prenup24"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup25} class="d-block w-100 gallery-photo" alt="prenup25"/> 
+                        </div>
+                        <div class="carousel-item">
+                            <img src={prenup26} class="d-block w-100 gallery-photo" alt="prenup26"/> 
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery" data-bs-slide="prev">
